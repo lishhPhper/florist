@@ -276,4 +276,14 @@ return [
         //API接口地址
         'api_url'             => 'https://api.fastadmin.net',
     ],
+
+    'redis' => [
+        'host' => '129.28.187.90',
+        'port' => 6370,
+        'password' => '944l9af4j6OuXifn',
+        'select' => 0,
+        'timeout' => 3600, //关闭时间 0:代表不关闭
+        'expire' => 0,
+        'prefix' => '',
+    ],
 ];
