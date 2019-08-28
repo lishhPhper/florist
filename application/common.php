@@ -362,3 +362,28 @@ if (!function_exists('hsv2rgb')) {
         ];
     }
 }
+
+if (!function_exists('getRedis')) {
+    /**
+     * 首字母头像
+     * @param $text
+     * @return string
+     */
+    function getRedis($config = '')
+    {
+        if (!$config) {
+            $config = \think\Config::get('redis');
+        }
+        $host = $config['host'];
+        $port = $config['port'];
+        $password = $config['password'];
+        $select = $config['select'];
+        $redis = new Redis();
+        $redis->connect($host, $port);
+        if ($password) {
+            $redis->auth($password);
+        }
+        $redis->select($select);
+        return $redis;
+    }
+}
